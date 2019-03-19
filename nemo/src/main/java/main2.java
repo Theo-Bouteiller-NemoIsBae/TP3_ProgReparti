@@ -9,8 +9,11 @@ public class main2 {
         int port = 50013;
         int nbClients = 50;
 
-        ServeurTcpEcho serveurTcpEcho = new ServeurTcpEcho(port, nbClients);
-        serveurTcpEcho.run();
+        //ServeurTcpEcho serveurTcpEcho = new ServeurTcpEcho(port, nbClients);
+        //serveurTcpEcho.run();
+
+        ServeurTcpEchoMulti serveurTcpEchoMulti = new ServeurTcpEchoMulti(port);
+        serveurTcpEchoMulti.run();
 
     }
 }
