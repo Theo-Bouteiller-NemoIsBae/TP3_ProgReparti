@@ -8,12 +8,15 @@ public class main2 {
 
         int port = 50013;
         int nbClients = 50;
+        int nbThread = 2;
 
-        //ServeurTcpEcho serveurTcpEcho = new ServeurTcpEcho(port, nbClients);
-        //serveurTcpEcho.run();
+//        ServeurTcpEcho serveurTcpEcho = new ServeurTcpEcho(port, nbClients);
+//        serveurTcpEcho.run();
 
-        ServeurTcpEchoMulti serveurTcpEchoMulti = new ServeurTcpEchoMulti(port);
-        serveurTcpEchoMulti.run();
+//        ServeurTcpEchoMulti serveurTcpEchoMulti = new ServeurTcpEchoMulti(port);
+//        serveurTcpEchoMulti.run();
 
+        ServeurTcpEchoPool serveurTcpEchoPool = new ServeurTcpEchoPool(port, nbThread);
+        serveurTcpEchoPool.run();
     }
 }

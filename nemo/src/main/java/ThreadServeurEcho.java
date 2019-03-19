@@ -6,21 +6,30 @@ public class ThreadServeurEcho extends Thread {
 
     public ThreadServeurEcho(Socket client) {
         this.client = client;
+    }
+
+    public void start(){
         this.start();
     }
 
     public void run(){
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+            BufferedReader in;
+            BufferedWriter out;
 
             String reponse = "";
 
-            reponse = in.readLine();
             while (!reponse.equals("exit")) {
+
+                in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+
+                reponse = in.readLine();
+
                 out.write(reponse.toUpperCase());
                 out.newLine();
                 out.flush();
+
             }
 
         this.client.close();
